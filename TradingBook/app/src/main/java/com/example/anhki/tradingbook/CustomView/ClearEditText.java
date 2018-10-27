@@ -1,4 +1,4 @@
-package com.example.anhki.tradingbook.View.CustomView;
+package com.example.anhki.tradingbook.CustomView;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -57,7 +57,8 @@ public class ClearEditText extends EditText {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (MotionEvent.ACTION_DOWN == event.getAction() && event.getX() >= 560){
+
+        if (MotionEvent.ACTION_DOWN == event.getAction() && event.getX() >= (getWidth() - drawable.getBounds().width())){
             setText("");
         }
         return super.onTouchEvent(event);

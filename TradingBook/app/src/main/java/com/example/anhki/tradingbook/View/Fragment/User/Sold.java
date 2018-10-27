@@ -1,4 +1,4 @@
-package com.example.anhki.tradingbook.View.View.TrangChu.Fragment;
+package com.example.anhki.tradingbook.View.Fragment.User;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,11 +10,15 @@ import android.view.ViewGroup;
 
 import com.example.anhki.tradingbook.R;
 
-public class FragmentProduct extends Fragment {
+public class Sold extends Fragment {
+    public static Sold newInstance(int i) {
+        return new Sold();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_home_product, container, false);
+        View view = inflater.inflate(R.layout.layout_user_sold, container, false);
         return view;
     }
 }

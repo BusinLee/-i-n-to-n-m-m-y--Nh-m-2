@@ -1,19 +1,16 @@
-package com.example.anhki.tradingbook.View.CustomView;
+package com.example.anhki.tradingbook.CustomView;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Notification;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.anhki.tradingbook.R;
 
@@ -66,12 +63,10 @@ public class PasswordEditText extends EditText {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Toast.makeText(getContext(), String.valueOf(getRight()), Toast.LENGTH_SHORT).show();
-        if (event.getAction() == MotionEvent.ACTION_UP && (event.getX() >= 560)){
+        if (event.getAction() == MotionEvent.ACTION_UP && (event.getX() >= (getWidth() - drawable.getBounds().width()))){
             visible = !visible;
             caidat();
             invalidate();
-            Toast.makeText(getContext(), "ClickIcon", Toast.LENGTH_SHORT).show();
         }
         return super.onTouchEvent(event);
     }

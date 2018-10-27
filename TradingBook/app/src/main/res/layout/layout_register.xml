@@ -30,7 +30,7 @@
         android:textColor="@color/colorBlack"
         />
 
-    <com.example.anhki.tradingbook.View.CustomView.ClearEditText
+    <com.example.anhki.tradingbook.CustomView.ClearEditText
         android:id="@+id/edRegisterEmail"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         android:textColor="@color/colorBlack"
         />
 
-    <com.example.anhki.tradingbook.View.CustomView.PasswordEditText
+    <com.example.anhki.tradingbook.CustomView.PasswordEditText
         android:id="@+id/edRegisterPassword"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
         android:paddingTop="10dp"
         android:textColor="@color/colorBlack"/>
 
-    <com.example.anhki.tradingbook.View.CustomView.PasswordEditText
+    <com.example.anhki.tradingbook.CustomView.PasswordEditText
         android:id="@+id/edRePassword"
         android:layout_width="240dp"
         android:layout_height="wrap_content"

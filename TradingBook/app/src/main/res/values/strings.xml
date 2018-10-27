@@ -25,7 +25,14 @@
     <string name="taotaikhoanthanhcong">Tạo tài khoản thành công!</string>
     <string name="timkiem">Tìm kiếm sách</string>
     <string name="caidat">Cài đặt</string>
-    <string name="huongdan">Hướng dẫn</string>
     <string name="_1">1</string>
     <string name="more">More</string>
+    <string name="huongdan">Hướng dẫn</string>
+    <string name="tennguoidung">Tên người dùng</string>
+    <string name="sdt">Số điện thoại</string>
+    <string name="diachi">Địa chỉ</string>
+    <string name="baocao">Báo cáo</string>
+    <string name="lydo">Lý do</string>
+    <string name="capnhat">Cập nhật</string>
+    <string name="hintnhap">Nhập tại đây...</string>
 </resources>
