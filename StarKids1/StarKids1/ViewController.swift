@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var btnFirst: UIButton!
+    @IBOutlet weak var btnLogIn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        btnFirst.layer.cornerRadius = 0.5 * btnFirst.bounds.size.width;
+        
+        btnLogIn.layer.cornerRadius = 5
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
     }
 
 
