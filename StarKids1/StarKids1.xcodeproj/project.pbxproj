@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1202F66B225A323E00FA9666 /* NewStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202F66A225A323D00FA9666 /* NewStudentController.swift */; };
 		12DB3DED2247D1E2005F96DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB3DEC2247D1E2005F96DD /* AppDelegate.swift */; };
 		12DB3DEF2247D1E2005F96DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB3DEE2247D1E2005F96DD /* ViewController.swift */; };
 		12DB3DF22247D1E2005F96DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12DB3DF02247D1E2005F96DD /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1202F66A225A323D00FA9666 /* NewStudentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentController.swift; sourceTree = "<group>"; };
 		12DB3DE92247D1E2005F96DD /* StarKids1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarKids1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DB3DEC2247D1E2005F96DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12DB3DEE2247D1E2005F96DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1202F667225A2FD500FA9666 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12DB3DF02247D1E2005F96DD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1202F668225A2FDE00FA9666 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				12DB3DEE2247D1E2005F96DD /* ViewController.swift */,
+				1202F66A225A323D00FA9666 /* NewStudentController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1202F669225A2FF100FA9666 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		12DB3DE02247D1E2005F96DD = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +89,11 @@
 		12DB3DEB2247D1E2005F96DD /* StarKids1 */ = {
 			isa = PBXGroup;
 			children = (
+				1202F669225A2FF100FA9666 /* Model */,
+				1202F668225A2FDE00FA9666 /* Controller */,
+				1202F667225A2FD500FA9666 /* View */,
 				12DB3DFE2247D2C6005F96DD /* GoogleService-Info.plist */,
 				12DB3DEC2247D1E2005F96DD /* AppDelegate.swift */,
-				12DB3DEE2247D1E2005F96DD /* ViewController.swift */,
-				12DB3DF02247D1E2005F96DD /* Main.storyboard */,
 				12DB3DF32247D1F2005F96DD /* Assets.xcassets */,
 				12DB3DF52247D1F2005F96DD /* LaunchScreen.storyboard */,
 				12DB3DF82247D1F2005F96DD /* Info.plist */,
@@ -80,7 +107,6 @@
 				99F6A324D014F43A41E40D88 /* Pods-StarKids1.debug.xcconfig */,
 				360DC72F9F392663DCDC82D8 /* Pods-StarKids1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1202F66B225A323E00FA9666 /* NewStudentController.swift in Sources */,
 				12DB3DEF2247D1E2005F96DD /* ViewController.swift in Sources */,
 				12DB3DED2247D1E2005F96DD /* AppDelegate.swift in Sources */,
 			);
