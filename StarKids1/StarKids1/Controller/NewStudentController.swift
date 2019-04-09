@@ -10,6 +10,7 @@ import UIKit
 
 class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var lbValid: UILabel!
     @IBOutlet weak var txtBirthYear: UITextField!
     @IBOutlet weak var txtFullName: UITextField!
     @IBOutlet weak var btnAddStudent: UIButton!
@@ -20,7 +21,6 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
     var date:String = ""
     var day:String = "01"
     var month:String = "01"
-    //let year = Calendar.current.component(.year, from: Date()) - 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,24 +39,43 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         txtBirthYear.text = String(Calendar.current.component(.year, from: Date()) - 5)
         btnAddStudent.layer.cornerRadius = 5
+        lbValid.isHidden = true
         
         let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
     }
     
+    @IBAction func tap_Avata(_ sender: UITapGestureRecognizer) {
+        print("Dang tap")
+        let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Chọn", preferredStyle: .alert)
+        let btnPhoto:UIAlertAction = UIAlertAction(title: "Photo", style: .default) { (UIAlertAction) in
+            let imgPicker = UIImagePickerController()
+            imgPicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            imgPicker.celegate = self
+            imgPicker.allowsEditing = false
+            self.present(imgPicker, animated: true, completion: nil)
+        }
+        let btnCamera:UIAlertAction = UIAlertAction(title: "Camera", style: .default) { (UIAlertAction) in
+            
+        }
+        alert.addAction(btnPhoto)
+        alert.addAction(btnCamera)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     @IBAction func btn_AddStudent(_ sender: Any) {
-        if ((month == "4" || month == "6" || month == "9" || month == "11") && day == "31") {
-            print("Invalid")
+        if ((month == "04" || month == "06" || month == "09" || month == "11") && day == "31") {
+            lbValid.isHidden = false
         } else {
-            if (month == "2" && (day == "30" || day == "31")) {
-                print("Invalid")
+            if (month == "02" && (day == "30" || day == "31")) {
+                lbValid.isHidden = false
             } else {
-                if (month == "2" && day == "29" && (Int(txtBirthYear.text!)! % 4) != 0) {
-                    print("Invalid")
+                if (month == "02" && day == "29" && (Int(txtBirthYear.text!)! % 4) != 0) {
+                    lbValid.isHidden = false
                 } else {
                     date = day + month + txtBirthYear.text!
-                    print("Final \(date)")
+                    lbValid.isHidden = true
                 }
             }
         }
@@ -92,5 +111,11 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
                 month = String(arrDate[component][row])
             }
         }
+    }
+}
+extension NewStudentController : UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    private func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let chooseImg = info[UIImagePickerControllerOriginalImage] as! UIImage
     }
 }
