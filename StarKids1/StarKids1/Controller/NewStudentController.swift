@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -21,6 +22,7 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
     var date:String = ""
     var day:String = "01"
     var month:String = "01"
+    var imgData:Data!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +49,12 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func tap_Avata(_ sender: UITapGestureRecognizer) {
-        print("Dang tap")
         let alert:UIAlertController = UIAlertController(title: "Thông báo", message: "Chọn", preferredStyle: .alert)
         let btnPhoto:UIAlertAction = UIAlertAction(title: "Photo", style: .default) { (UIAlertAction) in
             let imgPicker = UIImagePickerController()
             imgPicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-            imgPicker.celegate = self
+            //imgPicker.delegate = self
+            imgPicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             imgPicker.allowsEditing = false
             self.present(imgPicker, animated: true, completion: nil)
         }
@@ -95,8 +97,6 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        //var abc:String = String(arrDate[component][row])
-        
         if (component == 0) {
             if (arrDate[component][row] < 10) {
                 day = "0" + String(arrDate[component][row])
@@ -115,7 +115,43 @@ class NewStudentController: UIViewController, UIPickerViewDelegate, UIPickerView
 }
 extension NewStudentController : UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    private func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let chooseImg = info[UIImagePickerControllerOriginalImage] as! UIImage
+//    let photos = PHPhotoLibrary.authorizationStatus()
+//    if (photos == .notDetermined) {
+//    PHPhotoLibrary.requestAuthorization({status in
+//    if status == .authorized{
+//    ...
+//    } else {}
+//    })
+//    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.originalImage] as? UIImage {
+            let imgValue = max(image.size.width, image.size.height)
+            if (imgValue > 3000) {
+                imgData = image.jpegData(compressionQuality: 0.1)
+            } else
+                if (imgValue > 2000) {
+                    imgData = image.jpegData(compressionQuality: 0.3)
+                } else {
+                    imgData = image.pngData()
+            }
+            self.imgAvatar.image = UIImage(data:imgData)
+        }
+        else
+            if let image = info[.editedImage] as? UIImage {
+                let imgValue = max(image.size.width, image.size.height)
+                if (imgValue > 3000) {
+                    imgData = image.jpegData(compressionQuality: 0.1)
+                } else
+                    if (imgValue > 2000) {
+                        imgData = image.jpegData(compressionQuality: 0.3)
+                    } else {
+                        imgData = image.pngData()
+                }
+                self.imgAvatar.image = UIImage(data:imgData)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }
