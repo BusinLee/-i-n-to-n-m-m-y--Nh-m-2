@@ -194,6 +194,20 @@
                                     <outletCollection property="gestureRecognizers" destination="vLf-Tq-hsa" appends="YES" id="vYd-ML-nor"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nv0-nZ-wiL">
+                                <rect key="frame" x="26" y="133" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuS-lP-AmK">
+                                <rect key="frame" x="119" y="128" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="S9y-QK-gDE"/>
@@ -204,6 +218,7 @@
                         <outlet property="lbValid" destination="TNN-ui-d3E" id="RwF-EW-Wcw"/>
                         <outlet property="pickerBirthDay" destination="xQs-qz-Ui7" id="u0F-2G-bad"/>
                         <outlet property="txtBirthYear" destination="dil-in-uDz" id="y7x-Gq-H0h"/>
+                        <outlet property="txtEmail" destination="wuS-lP-AmK" id="Drv-nK-av9"/>
                         <outlet property="txtFullName" destination="bYx-Ix-jDt" id="ngm-WL-Kwa"/>
                     </connections>
                 </viewController>
